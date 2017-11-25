@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:4406/test</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		
+		<property name="hibernate.connection.provider_class">com.zaxxer.hikari.hibernate.HikariConnectionProvider</property>
+
+       <!-- Maximum waiting time for a connection from the pool -->
+		<property name="hibernate.hikari.connectionTimeout">10000</property>
+		
+		<!-- Minimum number of ideal connections in the pool -->
+		<property name="hibernate.hikari.minimumIdle">20</property>
+		
+		<!-- Maximum number of actual connection in the pool -->
+		<property name="hibernate.hikari.maximumPoolSize">300</property>
+		
+		<!-- Maximum time that a connection is allowed to sit ideal in the pool -->
+		<property name="hibernate.hikari.idleTimeout">200000</property>
+		
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+
+		<mapping class="com.infotech.entities.User" />
+	</session-factory>
+</hibernate-configuration>
